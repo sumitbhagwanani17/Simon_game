@@ -49,6 +49,7 @@ function resetPage(params) {
 function gameOver() {
     $("body").addClass("game-over");
     updateTitle("Game Over, Press Any Key to Restart");
+    disableButtonEvent();
     setTimeout(function() {
         resetPage();
     }, 200);
@@ -71,6 +72,14 @@ function checkAnswer(pressed_button) {
     }
 }
 
+function enableButtonEvent(params) {
+    $(".btn").attr("disabled", "facel").on("click", false);
+}
+
+function disableButtonEvent(params) {
+    $(".btn").attr("disabled", "true").off("click");
+}
+
 // user clicking one of the color buttons
 $(".btn").click(function(e) {
     var pressed_button = $(this).attr("id");
@@ -83,6 +92,12 @@ function startGame() {
     console.log("key press detected");
     if (game_over) {
         location.reload();
+        game_pattern = [];
+        game_level = 0;
+        user_clicked_pattern = [];
+        user_entries = 0;
+        game_started = false;
+        game_over = false;
     } else {
         nextSequence();
     }
@@ -92,6 +107,7 @@ function startGame() {
 $(document).keydown(function(e) {
     if (!game_started) {
         game_started = true;
-        startGame();
+        enableButtonEvent();
     }
+    startGame();
 });

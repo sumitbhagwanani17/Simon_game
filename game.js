@@ -8,7 +8,6 @@ var game_over = false;
 
 // update the title
 function updateTitle(new_title) {
-    console.log("will update title to ", new_title);
     $("#level-title").text(new_title);
 }
 
@@ -32,7 +31,7 @@ function nextSequence() {
     var randNum = Math.floor(Math.random() * 4);
     var pressed_button = buttonColors[randNum];
     game_pattern.push(pressed_button);
-    console.log(game_pattern);
+    //console.log(game_pattern);
     buttonPressed(pressed_button);
     game_level++;
     updateTitle("Level " + (game_level));
@@ -40,7 +39,6 @@ function nextSequence() {
 
 // return page to normal background, once user gets the sequence wrong
 function resetPage(params) {
-    console.log("reseting background");
     $("body").removeClass("game-over");
     game_over = true;
 }
@@ -89,7 +87,6 @@ $(".btn").click(function(e) {
 
 // start new game
 function startGame() {
-    console.log("key press detected");
     if (game_over) {
         location.reload();
         game_pattern = [];
@@ -99,7 +96,7 @@ function startGame() {
         game_started = false;
         game_over = false;
     } else {
-        enableButtonEvent();
+        //enableButtonEvent();
         nextSequence();
     }
 }
@@ -108,7 +105,6 @@ function startGame() {
 $(document).keydown(function(e) {
     if (!game_started) {
         game_started = true;
-        enableButtonEvent();
     }
     startGame();
 });

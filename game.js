@@ -99,6 +99,7 @@ function startGame() {
         game_started = false;
         game_over = false;
     } else {
+        enableButtonEvent();
         nextSequence();
     }
 }

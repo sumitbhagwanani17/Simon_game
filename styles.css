@@ -10,15 +10,6 @@ body {
     color: #FEF2BF;
 }
 
-
-/*
-.container {
-    display: block;
-    width: 50%;
-    margin: auto;
-}
-*/
-
 .btn {
     height: 200px;
     width: 200px;
@@ -29,6 +20,22 @@ body {
 .game-over {
     background-color: red;
     opacity: 0.8;
+}
+
+.green-wrap {
+    text-align: right;
+}
+
+.red-wrap {
+    text-align: left;
+}
+
+.yellow-wrap {
+    text-align: right;
+}
+
+.blue-wrap {
+    text-align: left;
 }
 
 .red {
@@ -55,4 +62,22 @@ body {
 .description {
     color: white;
     font-size: 2rem;
+}
+
+
+/* this is triggered for browsers that have a width less than 767px */
+
+@media (max-width: 767px) {
+    .green-wrap {
+        text-align: center;
+    }
+    .red-wrap {
+        text-align: center;
+    }
+    .yellow-wrap {
+        text-align: center;
+    }
+    .blue-wrap {
+        text-align: center;
+    }
 }
